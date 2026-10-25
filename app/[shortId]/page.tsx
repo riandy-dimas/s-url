@@ -3,16 +3,18 @@ import { createClient } from '@/utils/supabase/server'
 import { notFound } from 'next/navigation';
 
 type PageProps = {
-  params: { shortId: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: Promise<{ shortId: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export default async function Main({ params, searchParams }: PageProps) {
-  const supabase = createClient()
+  const { shortId } = await params
+  const resolvedSearchParams = await searchParams
+  const supabase = await createClient()
   const { data, error } = await supabase
     .from('urls')
     .select('id, long_url')
-    .eq('short_id', params.shortId)
+    .eq('short_id', shortId)
 
   if (data?.length === 0 || error) {
     return notFound()
@@ -20,7 +22,7 @@ export default async function Main({ params, searchParams }: PageProps) {
 
   const { id, long_url } = data[0]
 
-  const getUtm = (utm: PageProps['searchParams']): Record<string, string> | undefined => {
+  const getUtm = (utm: Awaited<PageProps['searchParams']>): Record<string, string> | undefined => {
     if (!utm) return undefined
     if (Array.isArray(utm)) return undefined
     return Object.entries(utm)
@@ -37,12 +39,12 @@ export default async function Main({ params, searchParams }: PageProps) {
       }, {})
   }
 
-  if (typeof searchParams === 'object') {
+  if (typeof resolvedSearchParams === 'object') {
     await supabase
       .from('accesseds')
       .insert({
         url_id: id,
-        ...getUtm(searchParams)
+        ...getUtm(resolvedSearchParams)
       })
   }
 

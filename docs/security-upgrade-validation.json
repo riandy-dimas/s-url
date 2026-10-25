@@ -1,0 +1,240 @@
+{
+  "date": "2026-10-25",
+  "repository": "s-url",
+  "baselineHead": "a63d77de5ed6f348034e9ac041bef99f1a4b0fda",
+  "baselineVersions": {
+    "@supabase/ssr": "^0.4.0",
+    "@supabase/supabase-js": "^2.45.1",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "versions": {
+    "node": "24.22.1",
+    "engines": "24.x",
+    "packageManager": "npm@11.19.1",
+    "next": "16.4.3",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "eslint-config-next": "16.4.3",
+    "@types/node": "24.19.2",
+    "vitest": "4.1.12"
+  },
+  "lockfile": "package-lock.json",
+  "lockSha256": "b420c26e12f8fe2cf0c6eeab9801899b23ae6a932c38eed9227117c283ec821a",
+  "baselineAudit": {
+    "info": 0,
+    "low": 4,
+    "moderate": 5,
+    "high": 15,
+    "critical": 1,
+    "total": 25
+  },
+  "audits": {
+    "all": {
+      "counts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 4,
+        "high": 0,
+        "critical": 0,
+        "total": 4
+      },
+      "highOrCritical": []
+    },
+    "production": {
+      "counts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "highOrCritical": []
+    }
+  },
+  "checks": [
+    {
+      "phase": "baseline-install",
+      "command": "npm ci --no-audit --no-fund",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 138
+    },
+    {
+      "phase": "baseline-audit",
+      "command": "npm audit --json",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 98
+    },
+    {
+      "phase": "baseline-build",
+      "command": "npm run build",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 75
+    },
+    {
+      "phase": "upgrade-install",
+      "command": "npm install --no-audit --no-fund",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 255
+    },
+    {
+      "phase": "upgrade-tests",
+      "command": "npm run test",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 35
+    },
+    {
+      "phase": "upgrade-lint",
+      "command": "npm run lint",
+      "node": "v24.22.1",
+      "exit": 2,
+      "signal": null,
+      "seconds": 88
+    },
+    {
+      "phase": "upgrade-build",
+      "command": "npm run build",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 133
+    },
+    {
+      "phase": "upgrade-tests-2",
+      "command": "npm run test",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 5
+    },
+    {
+      "phase": "upgrade-lint-2",
+      "command": "npm run lint",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 22
+    },
+    {
+      "phase": "browser-dependency-install",
+      "command": "npm install --no-audit --no-fund",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 17
+    },
+    {
+      "phase": "final-browser",
+      "command": "npm run test:e2e",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 27
+    },
+    {
+      "phase": "frozen-install",
+      "command": "npm ci --no-audit --no-fund",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 123
+    },
+    {
+      "phase": "final-audit",
+      "command": "npm audit --json",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 3
+    },
+    {
+      "phase": "final-production-audit",
+      "command": "npm audit --json --omit=dev",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 3
+    },
+    {
+      "phase": "final-lint",
+      "command": "npm run lint",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 82
+    },
+    {
+      "phase": "final-typecheck",
+      "command": "npm run typecheck",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 29
+    },
+    {
+      "phase": "final-test",
+      "command": "npm run test",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 19
+    },
+    {
+      "phase": "final-build",
+      "command": "npm run build",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 374
+    },
+    {
+      "phase": "safe-audit-fix",
+      "command": "npm audit fix --no-fund",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 23
+    },
+    {
+      "phase": "patched-vitest-install",
+      "command": "npm install --no-audit --no-fund",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 43
+    },
+    {
+      "phase": "clean-frozen-install",
+      "command": "npm ci --no-fund --no-audit",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 370
+    },
+    {
+      "phase": "verified-browser",
+      "command": "npm run test:e2e",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 41
+    }
+  ],
+  "browser": null,
+  "notes": [
+    "Regression tests cover concurrent cookie isolation, asynchronous route lookup, missing links, UTM recording and browser redirects using local fixtures."
+  ],
+  "blockers": []
+}
